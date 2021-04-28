@@ -33,7 +33,7 @@ app.use(express.json())
 
 
 app.get('/', (req, res) => {
-    res.send('PIZZA TIME')
+    res.send('GIMME PIZZA - P-I-Z-Z-A')
 })
 
 /*Setting the port that the server will listen to requests on
