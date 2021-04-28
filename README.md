@@ -1,1 +1,0 @@
-Use the command `npm run dev` to run the server with nodemon
