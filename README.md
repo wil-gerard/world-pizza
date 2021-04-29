@@ -16,4 +16,3 @@ You don't have to include this section but interviewers *love* that you can not 
 
 ## Lessons Learned (so far!):
 Team work makes the dream work
-
