@@ -4,9 +4,13 @@ const app = express()
 const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const connectDB = require('./config/database')
+const connectDB = require('./config/config')
+const passport = require('passport')
 
 require('dotenv').config({path: './config/.env'})
+
+// passport config
+require('./config/passport')(passport)
 
 connectDB()
 
@@ -41,7 +45,7 @@ app.use(express.json())
 
 
 app.get('/', (req, res) => {
-    res.send('GIMME PIZZA - P-I-Z-Z-A')
+    res.render("index")
 })
 
 /*Setting the port that the server will listen to requests on
