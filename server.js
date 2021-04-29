@@ -1,6 +1,14 @@
 //Initializing express
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const connectDB = require('./config/database')
+
+require('dotenv').config({path: './config/.env'})
+
+connectDB()
 
 
 //When we upload to heroku, heroku will add it's own PORT
