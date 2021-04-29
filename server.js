@@ -45,7 +45,7 @@ app.use(express.json())
 
 
 app.get('/', (req, res) => {
-    res.send('GIMME PIZZA - P-I-Z-Z-A')
+    res.render("index")
 })
 
 /*Setting the port that the server will listen to requests on
