@@ -4,7 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const connectDB = require('./config/database')
+const connectDB = require('./config/config')
 
 require('dotenv').config({path: './config/.env'})
 
