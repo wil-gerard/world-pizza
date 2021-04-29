@@ -6,7 +6,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/config')
 const passport = require('passport')
-
+const User = require('./models/User')
 require('dotenv').config({path: './config/.env'})
 
 // passport config
@@ -42,10 +42,22 @@ http://expressjs.com/en/api.html#express.json */
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-
-
+//Home Page
 app.get('/', (req, res) => {
     res.render("index")
+})
+
+//Profile Page - will add auth middleware to protect page SOON
+app.get('/profile', /*middleware for auth */(req, res) => {
+    res.render('profile')
+})
+
+//Sign up new user POST request
+app.post('/create-user', (req, res) => {
+    const user = new User(req.body)
+    user.save()
+    .then(result => console.log(result))
+    res.redirect('/profile')
 })
 
 /*Setting the port that the server will listen to requests on
