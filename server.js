@@ -52,12 +52,25 @@ app.get('/profile', /*middleware for auth */(req, res) => {
     res.render('profile')
 })
 
+//Login Page
+app.get('/login', /*middleware for auth */(req, res) => {
+    res.render('login')
+})
+
 //Sign up new user POST request
 app.post('/create-user', (req, res) => {
     const user = new User(req.body)
     user.save()
     .then(result => console.log(result))
     res.redirect('/profile')
+})
+
+app.post('/login', (req, res) => {
+    console.log('IS IT WORKING?')
+    User.findOne({email: req.body.email})
+    .then(user => {
+        console.log(user)
+    }) 
 })
 
 /*Setting the port that the server will listen to requests on

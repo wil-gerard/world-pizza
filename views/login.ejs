@@ -1,15 +1,10 @@
 <%- include('partials/header') -%>
-
     <div class="left-index">
-        <span>World Pizza</span>
+        <h1>World Pizza</h1>
         <span>Your</span>
         <span>Pizza Review Hub</span>
     </div>
-    <form action="/create-user" method="POST">
-    <label>
-        User Name
-        <input type="text" name="userName">
-    </label>
+    <form action="/login" method="POST">
     <label>
         Email
         <input type="text" name="email">
@@ -18,13 +13,11 @@
         Password
         <input type="password" name="password">
     </label>
-    <button>Sign Up</button>
+    <button>Login</button>
     </form>
 
-    <a href="/login">Login</a>
-
     <div class="left-index">
-
+        
     </div>
 
 <%- include('partials/footer') -%>
