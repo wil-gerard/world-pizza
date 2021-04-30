@@ -1,5 +1,23 @@
 <%- include('partials/header') -%>
-    <h1>Profile</h1>
-    <p>User: <%= user.userName %></p>
-    <p>Email: <%= user.email %></p>
+<h1>Profile</h1>
+<p>User: <%= user.userName %></p>
+<p>Email: <%= user.email %></p>
+<div>
+  <h2>Post a Pizza Pic</h2>
+  <form action="/post/create-post" method="POST">
+    <label>
+      Pizza Title
+      <input type="text" name="title" />
+    </label>
+    <label>
+      Pizza Caption
+      <textarea name="caption" id="" cols="30" rows="10"> </textarea>
+    </label>
+    <label>
+      Pizza Pic
+      <input type="file" name="file" />
+    </label>
+    <button>Post Pic</button>
+  </form>
+</div>
 <%- include('partials/footer') -%>

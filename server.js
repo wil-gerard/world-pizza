@@ -104,6 +104,10 @@ app.post('/login', (req, res, next) => {
     })(req, res, next);
 })
 
+app.post('/post/create-post', (req, res) => {
+    console.log('yo')
+})
+
 /*Setting the port that the server will listen to requests on
 The console.log will print when the server is listening
 http://expressjs.com/en/api.html#app.listen */
