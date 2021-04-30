@@ -8,6 +8,7 @@ const connectDB = require('./config/config')
 const passport = require('passport')
 const User = require('./models/User')
 require('dotenv').config({path: './config/.env'})
+const { ensureAuth } = require('./middleware/auth') 
 
 // passport config
 require('./config/passport')(passport)
@@ -27,6 +28,20 @@ try replacing 'dev' with: 'default', 'short', 'common' etc
 https://www.npmjs.com/package/morgan */
 
 app.use(require('morgan')('dev'))
+
+// Cookies
+app.set('trust proxy', 1)
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUnitialized: true,
+    cookie: { secure: true },
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+}))
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session())
 
 /*Setting the view engine to use ejs templates
 https://ejs.co/#docs */
@@ -48,7 +63,7 @@ app.get('/', (req, res) => {
 })
 
 //Profile Page - will add auth middleware to protect page SOON
-app.get('/profile', /*middleware for auth */(req, res) => {
+app.get('/profile', ensureAuth, (req, res) => {
     res.render('profile')
 })
 
@@ -65,12 +80,21 @@ app.post('/create-user', (req, res) => {
     res.redirect('/profile')
 })
 
-app.post('/login', (req, res) => {
-    console.log('IS IT WORKING?')
-    User.findOne({email: req.body.email})
-    .then(user => {
-        console.log(user)
-    }) 
+app.post('/login', (req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.redirect("/login");
+        }
+        req.logIn(user, (err) => {
+            if (err) {
+                return next(err);
+            }
+            res.redirect(req.session.returnTo || "/profile");
+        })
+    })(req, res, next);
 })
 
 /*Setting the port that the server will listen to requests on

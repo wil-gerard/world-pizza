@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Pacifico', cursive;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    height:150%;
+}
+
+.left-index{
+    border:1px solid red;
+    width:50%;
+    /*background-image: url('/img/world_pizza_index_bg.jpg');
+    background-size: cover;*/
+    height:150%;
+}
+
+.right-index{
+    border:1px solid blue;
+    width:50%;
+    height:150%;
+}
+
+.pizza_footer{
+    position:absolute;
+    border:1px solid orange;
+    width:100%;
+    bottom:0;
+}
