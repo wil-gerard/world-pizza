@@ -6,9 +6,8 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/config')
 const passport = require('passport')
-const User = require('./models/User')
 require('dotenv').config({path: './config/.env'})
-const { ensureAuth } = require('./middleware/auth') 
+const mainRoutes = require('./routes/main')
 
 // passport config
 require('./config/passport')(passport)
@@ -59,49 +58,11 @@ http://expressjs.com/en/api.html#express.json */
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-//Home Page
-app.get('/', (req, res) => {
-    res.render("index")
-})
+// Using routes that we've required above
+app.use(mainRoutes)
 
-//Profile Page - will add auth middleware to protect page SOON
-app.get('/profile', ensureAuth, (req, res) => {
-    console.log(req)
-    res.render('profile', {user: req.user})
-})
-
-//Login Page
-app.get('/login', /*middleware for auth */(req, res) => {
-    res.render('login')
-})
-
-//Sign up new user POST request
-app.post('/create-user', (req, res) => {
-    const user = new User(req.body)
-    user.save()
-    .then(result => console.log(result))
-    res.redirect('/profile')
-})
-
-app.post('/login', (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
-        if (err) {
-            
-            return next(err);
-        }
-        if (!user) {
-            
-
-            return res.redirect("/login");
-        }
-        req.login(user, (err) => {
-            
-            if (err) {
-                return next(err);
-            }
-           return res.redirect("/profile");
-        })
-    })(req, res, next);
+app.post('/post/create-post', (req, res) => {
+    console.log('yo')
 })
 
 /*Setting the port that the server will listen to requests on
