@@ -8,7 +8,7 @@ const connectDB = require('./config/config')
 const passport = require('passport')
 const User = require('./models/User')
 require('dotenv').config({path: './config/.env'})
-const { ensureAuth } = require('./middleware/auth') 
+const { ensureAuth, ensureGuest } = require('./middleware/auth') 
 
 // passport config
 require('./config/passport')(passport)
@@ -71,7 +71,7 @@ app.get('/profile', ensureAuth, (req, res) => {
 })
 
 //Login Page
-app.get('/login', /*middleware for auth */(req, res) => {
+app.get('/login', ensureGuest, (req, res) => {
     res.render('login')
 })
 
