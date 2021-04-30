@@ -34,8 +34,10 @@ app.set('trust proxy', 1)
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUnitialized: true,
-    cookie: { secure: true },
+    //GOOD TO RESEARCH
+    saveUnitialized: false,
+    //ALSO GOOD TO RESEARCH
+    //cookies: {secure: true}
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
 }))
 
@@ -64,7 +66,8 @@ app.get('/', (req, res) => {
 
 //Profile Page - will add auth middleware to protect page SOON
 app.get('/profile', ensureAuth, (req, res) => {
-    res.render('profile')
+    console.log(req)
+    res.render('profile', {user: req.user})
 })
 
 //Login Page
@@ -83,16 +86,20 @@ app.post('/create-user', (req, res) => {
 app.post('/login', (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) {
+            
             return next(err);
         }
         if (!user) {
+            
+
             return res.redirect("/login");
         }
-        req.logIn(user, (err) => {
+        req.login(user, (err) => {
+            
             if (err) {
                 return next(err);
             }
-            res.redirect(req.session.returnTo || "/profile");
+           return res.redirect("/profile");
         })
     })(req, res, next);
 })
