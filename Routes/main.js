@@ -23,6 +23,11 @@ router.get('/login', ensureGuest, (req, res) => {
     res.render('login')
 })
 
+//Signup Page
+router.get('/signup', ensureGuest, (req, res) => {
+    res.render('signup')
+})
+
 //Sign up new user POST request
 router.post('/create-user', (req, res) => {
     const user = new User(req.body)
