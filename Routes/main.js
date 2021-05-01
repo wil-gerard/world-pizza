@@ -35,6 +35,7 @@ router.post('/create-user', (req, res) => {
     res.redirect('/profile')
 })
 
+// Redirects user to their profile page on a succesful login POST or back to login page if not a user
 router.post('/login', (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) {
@@ -54,6 +55,27 @@ router.post('/login', (req, res, next) => {
            return res.redirect("/profile");
         })
     })(req, res, next);
+})
+
+// Redirects users back to the index page after logging out or presents an error if you are not logged in
+router.get('/logout', (req, res, next) => {
+    if (req.session) {
+        req.logout();
+        req.session.destroy((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.clearCookie('session-id');
+                req.user = null
+                res.redirect('/')
+                console.log('You have logged out of this world of pizza.')
+            } 
+        });
+    } else {
+        let err = new Error('What the heck. You are not logged in!');
+        err.status = 403;
+        next(err);
+    }
 })
 
 // exports all the things with router (need to research more on how)
