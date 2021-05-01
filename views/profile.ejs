@@ -1,7 +1,11 @@
 <%- include('partials/header') -%>
-<h1>Profile</h1>
-<p>User: <%= user.userName %></p>
-<p>Email: <%= user.email %></p>
+<div> 
+  <h1>Profile</h1>
+  <p>User: <%= user.userName %></p>
+  <p>Email: <%= user.email %></p>
+  <a href="/logout">Logout</a>
+</div>
+
 <div>
   <h2>Post a Pizza Pic</h2>
   <!-- form for a new post - have never used enctype before - something else cool to research -->
