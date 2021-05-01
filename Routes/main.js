@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 // This is where we will be requiring the User and ensureAuth, so I don't believe we'll need it in the server anymore? (VKB)
 const User = require('../models/User')
+const PizzaPost = require('../models/Post')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 const passport = require('passport')
 
@@ -12,10 +13,13 @@ router.get('/', (req, res) => {
     res.render("index")
 })
 
-//Profile Page - will add auth middleware to protect page SOON
-router.get('/profile', ensureAuth, (req, res) => {
-    console.log(req)
-    res.render('profile', {user: req.user})
+//Changing the callback to async because we are sending a request to the DB now 
+router.get('/profile', ensureAuth, async (req, res) => {
+    await PizzaPost.find({user: req.user.id})
+    .then(response => {
+        console.log(response)
+        res.render('profile', {user: req.user, posts: response }) })
+    
 })
 
 //Login Page
