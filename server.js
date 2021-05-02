@@ -7,8 +7,9 @@ const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/config')
 const passport = require('passport')
 require('dotenv').config({path: './config/.env'})
+//Importing the routers
 const mainRoutes = require('./routes/main')
-
+const pizzaPostRoutes = require('./Routes/post')
 // passport config
 require('./config/passport')(passport)
 
@@ -60,6 +61,8 @@ app.use(express.json())
 
 // Using routes that we've required above
 app.use(mainRoutes)
+app.use('/post', pizzaPostRoutes)
+
 
 /*Setting the port that the server will listen to requests on
 The console.log will print when the server is listening

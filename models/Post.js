@@ -9,6 +9,11 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    //adding the cloudinary id to the post model
+    cloudinary_id: {
+        type: String,
+        required: true,
+    },
     caption: {
         type: String,
         required: true,
@@ -27,4 +32,4 @@ const PostSchema = new mongoose.Schema({
     },
 })
 
-mudule.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('Post', PostSchema)
