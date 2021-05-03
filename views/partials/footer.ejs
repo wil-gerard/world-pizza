@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-        <div class="pizza_footer">
-            <div class="footer-content">
-                <p>World Pizza: Your Pizza Review Hub</p>
-                <p>2021</p>
-                <p>Created by Team World Pizza &#127829;</p>
-            </div>
-        </div>
-    </body>
+<% if(feed){ %>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+    var elem = document.querySelector(".grid");
+    var msnry = new Masonry(elem, {
+        // options
+        itemSelector: ".grid-item",
+        columnWidth: 80,
+
+    });
+</script>
+<% } %>
+<div class="pizza_footer">
+    <h4>World Pizza &copy 2021</h4>
+</div>
+</body>
 </html>

@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Pacifico", cursive;
+}
+
+/* .container{
+    display: flex;
+    flex-direction: row;
+    height:150%;
+} */
+
+header {
+  padding: 0 2%;
+}
