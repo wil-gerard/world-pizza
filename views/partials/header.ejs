@@ -1,4 +1,20 @@
 <body>
   <header>
     <h1>World Pizza - Social Media, for Pizza!</h1>
+    <% if(user) { %>
+    <nav>
+      <ul>
+      <li>
+          <a href="/profile">Profile</a>
+        </li>
+        <li>
+          <a href="/logout">Logout</a>
+        </li>
+        <li>
+          <a href="/feed">Feed</a>
+        </li>
+      </ul>
+    </nav>
+    <% } %>
   </header>
+</body>
