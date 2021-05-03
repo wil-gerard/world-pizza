@@ -1,25 +1,32 @@
 <%- include('partials/head') %> 
-<%- include('partials/header') -%>
-
-<div class="left-index">
-    <span>World Pizza</span>
-    <span>Your</span>
-    <span>Pizza Review Hub</span>
+<div class="main-container">
+    <%- include('partials/header_splash') -%>
+    <div class="ls-container">
+        <div class="left-index">
+            <h1>World Pizza</h1>
+            <h2>Your</h2><br>
+            <h2>Pizza Review Hub</h2>
+        </div>
+        
+        <div class="right-index">
+            <form class="splash_form" action="/create-user" method="POST">
+                <label>
+                    User Name<br>
+                    <input type="text" name="userName">
+                </label><br><br>
+                <label>
+                    Email<br>
+                    <input type="text" name="email">
+                </label><br><br>
+                <label>
+                    Password<br>
+                    <input type="password" name="password">
+                </label>
+            </form>
+            <button class="splash_button">Sign Up</button>
+            <hr/>
+            <p>Already have an account? <a href="/login">Log In</a></p>
+        </div>
+    </div>
+    <%- include('partials/footer') -%>
 </div>
-<form action="/create-user" method="POST">
-<label>
-    User Name
-    <input type="text" name="userName">
-</label>
-<label>
-    Email
-    <input type="text" name="email">
-</label>
-<label>
-    Password
-    <input type="password" name="password">
-</label>
-<button>Sign Up</button>
-</form>
-
-<%- include('partials/footer') -%>

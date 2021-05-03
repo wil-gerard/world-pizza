@@ -1,7 +1,15 @@
 <%- include('partials/head') -%>
-<%- include('partials/header') -%>
+<div class="splash-container">
+    <%- include('partials/header_splash') -%>
+        <div class="splash-content">
+            <h1>World Pizza</h1>
+            <h2>Your</h2><br>
+            <h2>Pizza Review Hub</h2>
 
-    <a href="/login">Login</a>
-    <a href="/signup">Sign Up</a>
-
-<%- include('partials/footer') -%>
+            <div class="splash-buttons">
+                <button><a href="/login">Log In</a></button>
+                <button><a href="/signup">Sign Up</a></button>
+            </div>
+        </div>
+    <%- include('partials/footer') -%>
+</div>
