@@ -10,12 +10,12 @@ const passport = require("passport");
 // Changed the from app.get to router.get etc. since we want router used within the app
 //Home Page
 router.get("/", (req, res) => {
-  res.render("index", { user: req.user, title: 'Home', style: 'style', feed: false });
+  res.render("index", { user: req.user, title: 'Home', style: 'index', feed: false });
 });
 
 //Login Page
 router.get("/login", ensureGuest, (req, res) => {
-  res.render("login", { user: req.user, title: 'Login', style: 'style', feed: false });
+  res.render("login", { user: req.user, title: 'Login', style: 'login', feed: false });
 });
 
 //Changing the callback to async because we are sending a request to the DB now
@@ -45,7 +45,7 @@ router.get("/signup", ensureGuest, (req, res) => {
   res.render("signup",  {
       user: req.user,
       title: 'Sign Up',
-      style: 'style',
+      style: 'login',
       feed: false,
     });
 });
