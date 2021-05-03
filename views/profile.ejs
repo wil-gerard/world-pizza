@@ -1,11 +1,12 @@
 <%- include('partials/head') -%> <%- include('partials/header') -%>
+<div class="contain">
 <div class="profile-greeting">
   <h1>Profile</h1>
   <p>Hi <%= user.userName %>!</p>
   
 </div>
 
-<div class="contain">
+
   <div class="form-container">
     <h2>Post a Pizza Pic</h2>
     <!-- form for a new post - have never used enctype before - something else cool to research -->
@@ -28,6 +29,8 @@
       <button>Post Pic</button>
     </form>
   </div>
+  </div>
+  <div class="contain">
   <%- include('partials/pizzaGrid') %>
 </div>
 <%- include('partials/gridFooter') -%>
