@@ -1,0 +1,60 @@
+.pizza_footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid orange;
+  background: #fff;
+}
+
+.profile-greeting {
+  padding: 0  2%;
+}
+
+#new-post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contain {
+  padding: 2%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-container {
+  width: 30%;
+  max-width: 400px;
+  min-width: 200px;
+}
+
+.grid {
+  padding-left: 2%;
+  width: 100%;
+  margin: 0 auto 100px auto;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  max-width: 300px;
+}
+
+img {
+  max-width: 300px;
+  margin-bottom: 0;
+}
+.post-footer {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  height: 50px;
+  background: orange;
+}
