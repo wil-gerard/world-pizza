@@ -10,7 +10,7 @@ const passport = require('passport')
 // Changed the from app.get to router.get etc. since we want router used within the app
 //Home Page
 router.get('/', (req, res) => {
-    res.render("index")
+    res.render("index", {user: req.user, title: 'Home', style: 'index'})
 })
 
 //Changing the callback to async because we are sending a request to the DB now 
@@ -18,18 +18,18 @@ router.get('/profile', ensureAuth, async (req, res) => {
     await PizzaPost.find({user: req.user.id})
     .then(response => {
         console.log(response)
-        res.render('profile', {user: req.user, posts: response }) })
+        res.render('profile', {user: req.user, posts: response, title: 'Profile', style: 'style', feed: false}) })
     
 })
 
 //Login Page
 router.get('/login', ensureGuest, (req, res) => {
-    res.render('login')
+    res.render('login',  {user: req.user, title: 'Log In', style: 'login'})
 })
 
 //Signup Page
 router.get('/signup', ensureGuest, (req, res) => {
-    res.render('signup')
+    res.render('signup', {user: req.user, title: 'Sign Up', style: 'signup'})
 })
 
 //Sign up new user POST request
