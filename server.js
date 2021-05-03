@@ -4,6 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+const methodOverride = require('method-override')
 const connectDB = require('./config/config')
 const passport = require('passport')
 require('dotenv').config({path: './config/.env'})
@@ -44,6 +45,9 @@ app.use(session({
 // Passport
 app.use(passport.initialize())
 app.use(passport.session())
+
+// Method Override - Allows PUT/DELETE in form methods
+app.use(methodOverride('_method'))
 
 /*Setting the view engine to use ejs templates
 https://ejs.co/#docs */

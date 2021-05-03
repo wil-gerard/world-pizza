@@ -40,4 +40,13 @@ router.post('/create-post', upload.single("file"), async (req, res) => {
     }
 })
 
+router.get('/:id', ensureAuth, async (req, res) => {
+    try {
+        const post = await PizzaPost.findById(req.params.id);
+        res.render('post.ejs', { post: post, user: req.user, feed: false, title: post.title, style: "style"});
+        } catch (err) {
+        console.log(err);
+        }
+})
+
 module.exports = router;
