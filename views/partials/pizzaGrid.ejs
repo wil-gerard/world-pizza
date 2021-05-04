@@ -5,25 +5,22 @@
       <img src="<%= post.image %> " alt="" />
     </a>
     <div class="post-footer">
-    <div>
-      <h6><%= post.title %></h6>
+      <div class="post-info-container">
+        <h5><%= post.title %></h5>
+
+        <h5>
+          <%= new Date(post.createdAt).toLocaleString('en', {weekday: "short",
+          month: "short", day: 'numeric' }) %>
+        </h5>
+      </div>
+
       <% if (feed) { %>
-      <div>
+      <div class="post-info-container">
         <h5>🍕 : <%= post.likes %></h5>
+
+        <h5>🚮 : <%= post.dislikes %></h5>
       </div>
-      <div>
-        <h5> 🚮 : <%= post.dislikes %></h5>
-      </div>
-      <% } else { %>
-      <div>
-        <h5>🍕 : <%= post.likes %></h5>
-      </div>
-        <h5> 🚮 : <%= post.dislikes %></h5>
       <% } %>
-      </div>
-      <div>
-        <h6><%= new Date(post.createdAt).toLocaleString('en', {weekday: "short", month: "short", day: 'numeric' }) %> </h6>
-      </div>
     </div>
   </div>
   <% }) %>
