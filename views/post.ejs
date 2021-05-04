@@ -10,7 +10,18 @@
         <button>🗑️Delete</button>
       </form>
       <% } %>
+      <% { %>
+      <form action="/post/likePost/<%= post.id %>/?_method=PUT" method="POST">
+        <button>🍕Like</button>
+      </form>
+      <% } %>
+      <% { %>
+      <form action="/post/dislikePost/<%= post.id %>/?_method=PUT" method="POST">
+        <button>🚮Dislike</button>
+      </form>
+      <% } %>
       <span>🍕 : <%= post.likes %></span>
+      <span> 🚮 : <%= post.dislikes %></span>
     </div>
     <div><p>Posted on : <%= new Date(post.createdAt).toLocaleString('en', {weekday: "long", month: 'long', day: 'numeric'}) %></p></div>
   </div>

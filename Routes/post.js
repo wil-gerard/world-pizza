@@ -28,6 +28,7 @@ router.post("/create-post", upload.single("file"), async (req, res) => {
       caption: req.body.caption,
       cloudinary_id: cloudinaryResponse.public_id,
       likes: 0,
+      dislikes: 0,
       user: req.user.id,
     });
     console.log("New Pizza Posted");
@@ -65,6 +66,38 @@ router.delete("/deletePost/:id", async (req, res) => {
     res.redirect('/profile')
   } catch (error) {
       console.error(error)
+  }
+});
+
+router.put("/likePost/:id", async (req, res) => {
+  try {
+    await PizzaPost.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        //increases post likes by +1🍕
+        $inc: { likes: 1 },
+      }
+    );
+    console.log('wowwww!!! super awesome pizza post. +1🍕');
+    res.redirect(`/post/${req.params.id}`);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.put("/dislikePost/:id", async (req, res) => {
+  try {
+    await PizzaPost.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        //increases post dislikes by +1🚮
+        $inc: { dislikes: 1 },
+      }
+    );
+    console.log('boooo! super awesome pizza post.....NOT. +1🚮');
+    res.redirect(`/post/${req.params.id}`);
+  } catch (err) {
+    console.log(err);
   }
 });
 
