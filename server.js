@@ -54,7 +54,7 @@ https://ejs.co/#docs */
 app.set('view engine', 'ejs')
 
 //Telling express where to find our static files (CSS, front-end JavaScript)
-app.use(express.static('public'))
+app.use(express.static('Public'))
 
 /*Initializing built in middleware that helps our server deal with
 JSON data sent as the request body with a POST or PUT request
