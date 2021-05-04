@@ -9,7 +9,7 @@ const connectDB = require('./config/config')
 const passport = require('passport')
 require('dotenv').config({path: './config/.env'})
 //Importing the routers
-const mainRoutes = require('./routes/main')
+const mainRoutes = require('./Routes/main')
 const pizzaPostRoutes = require('./Routes/post')
 // passport config
 require('./config/passport')(passport)
