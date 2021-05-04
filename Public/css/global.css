@@ -59,3 +59,12 @@ li a {
   color: rgb(233, 106, 21);
 }
 
+.pizza_footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid orange;
+  background: #fff;
+}
