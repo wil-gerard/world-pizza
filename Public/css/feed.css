@@ -8,13 +8,40 @@
   background: #fff;
 }
 
-.profile-greeting {
-  padding: 0  2%;
-}
-
 #new-post-form {
   display: flex;
   flex-direction: column;
+}
+
+.contain-profile {
+  text-align: center;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 10vh auto 0 auto;
+
+}
+
+.profile-greeting {
+  padding: 0 2%;
+  width: 40%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image {
+  background:cornflowerblue;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.form-container {
+  max-width: 400px;
+  min-width: 200px;
 }
 
 .contain {
@@ -22,13 +49,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 0 auto;
-}
-
-.form-container {
-  width: 30%;
-  max-width: 400px;
-  min-width: 200px;
+  margin: 10vh auto 0 auto;
 }
 
 .grid {
