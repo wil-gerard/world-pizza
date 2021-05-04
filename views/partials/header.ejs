@@ -1,19 +1,26 @@
 <body>
   <header>
-    <h1>World Pizza</h1>
+    
     <% if(user) { %>
     <nav>
-      <ul>
+
+    <ul>
       <li>
           <a href="/profile">Profile</a>
         </li>
         <li>
-          <a href="/logout">Logout</a>
-        </li>
-        <li>
           <a href="/feed">Feed</a>
+        </li>
+    
+    </ul>
+    <h1>World Pizza</h1>
+      <ul>
+        <li>
+          <a href="/logout">Logout</a>
         </li>
       </ul>
     </nav>
-    <% } %>
+    <% } else { %>
+    <h1>World Pizza</h1>
+    <% } %> 
   </header>
