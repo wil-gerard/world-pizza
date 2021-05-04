@@ -8,14 +8,21 @@
     <div>
       <h6><%= post.title %></h6>
       <% if (feed) { %>
-      <div><h5>🍕 : <%= post.likes %></h5></div>
+      <div>
+        <h5>🍕 : <%= post.likes %></h5>
+      </div>
+      <div>
+        <h5> 🚮 : <%= post.dislikes %></h5>
+      </div>
       <% } else { %>
-      <div><h5>🍕 : <%= post.likes %></h5></div>
+      <div>
+        <h5>🍕 : <%= post.likes %></h5>
+      </div>
+        <h5> 🚮 : <%= post.dislikes %></h5>
       <% } %>
       </div>
       <div>
-      <h6><%= new Date(post.createdAt).toLocaleString('en', {weekday: "short", month: "short", day: 'numeric' }) %> </h6>
-      <h6><%=  %></h6>
+        <h6><%= new Date(post.createdAt).toLocaleString('en', {weekday: "short", month: "short", day: 'numeric' }) %> </h6>
       </div>
     </div>
   </div>
