@@ -1,13 +1,16 @@
 <% if(feed){ %>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script>
     var elem = document.querySelector(".grid");
     var msnry = new Masonry(elem, {
         // options
         itemSelector: ".grid-item",
-        columnWidth: 80,
-
     });
+    imagesLoaded( elem ).on( 'progress', function() {
+  // layout Masonry after each image loads
+  msnry.layout();
+});
 </script>
 <% } %>
 <div class="pizza_footer">
