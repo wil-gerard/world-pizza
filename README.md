@@ -16,3 +16,32 @@ You don't have to include this section but interviewers *love* that you can not 
 
 ## Lessons Learned (so far!):
 Team work makes the dream work
+
+
+Things to do:
+Likes
+Delete
+Decide the way we display likes
+Use Thumbs Up Cursor on Pizza Button
+Pop-up new post form on feed
+Styling
+Dislikes - if (x dislikes){ auto delete }
+If no Pizza, no Post
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    height:100%;
+    color: black;
+    margin:0;
+}
+
+.splash_header{
+    /*  display: flex;
+      justify-content: center;
+      align-items: center;*/
+      background-color:#E96A15;
+      color:#E96A15;
+      height:60px;
+  
+  }
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+
+header h1{
+    font-family: 'Pacifico', cursive;
+    color:white;
+    text-shadow:rgba(143, 7, 7, 0.25) 0px 4px 3px;
+}
+
+.ls-container{
+    display: flex;
+    flex-direction: row;
+    height:100%;
+    width:100%;
+    clear:left;
+}
+
+.left-index{
+    width:50%;
+    background-image: linear-gradient(180deg, rgba(233, 106, 21, 1), rgba(233, 106, 21, 0),  rgba(233, 106, 21, 0)), url('/img/world_pizza_index_bg.jpg');
+    background-size: 100%;
+    background-size: cover;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    /*text-align: center;*/
+    justify-content: center;
+    align-items: center;
+    text-shadow:rgba(143, 7, 7, 0.25) 0px 4px 3px;
+   
+}
+
+.left-index h1 {
+    font-size:84px;
+    font-weight: 100;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 0;
+}
+
+.left-index h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size:48px;
+    font-weight: 500;
+}
+
+
+.right-index{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-index p a, .right-index p a:visited {
+    text-decoration: none;
+    font-weight: 500;
+    color: #9C1204;
+}
+
+.right-index p a:hover {
+    text-decoration: underline;
+    font-weight: 500;
+    color: #9C1204;
+}
+
+.splash_form /*Log In and Sign Up page forms...ADD ACTUAL NAME LATER*/{
+   display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:55%;
+    /*height:100%;*/
+    font-size:20px;
+    margin-bottom:5%;
+}
+
+.splash_form input {
+   height:40px;
+    width:100%;
+    border: 1px solid #9C1204;
+    border-radius: 3px;
+}
+
+
+.splash_button{
+    background-color:#E96A15;
+    color:white;
+    font-size:28px;
+    padding:15px;
+    border:none;
+    border-radius: 3px;
+    align-self: center;
+    width:150px;
+    margin-top:5%;
+}
+
+.splash_button:hover{
+    background-color:#E96A15;
+    box-shadow:rgba(143, 7, 7, 0.25) 0px 4px 3px;
+}
+
+.right-index hr{
+    width:55%;
+    margin-bottom:5%;
+}
+
+.pizza_footer{
+    /*position:absolute;
+    bottom:0;*/
+    width:100%;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color:rgb(112, 112, 112);
+}

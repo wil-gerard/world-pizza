@@ -1,10 +1,29 @@
 <div class="grid">
   <% posts.forEach(post => { %>
   <div class="grid-item">
-    <img src="<%= post.image %> " alt="" />
+    <a href="/post/<%= post._id%>">
+      <img src="<%= post.image %> " alt="" />
+    </a>
     <div class="post-footer">
-    <h6><%= post.title %></h6>
-    <div><h5>🍕 : <%= post.likes %></h5></div>
+    <div>
+      <h6><%= post.title %></h6>
+      <% if (feed) { %>
+      <div>
+        <h5>🍕 : <%= post.likes %></h5>
+      </div>
+      <div>
+        <h5> 🚮 : <%= post.dislikes %></h5>
+      </div>
+      <% } else { %>
+      <div>
+        <h5>🍕 : <%= post.likes %></h5>
+      </div>
+        <h5> 🚮 : <%= post.dislikes %></h5>
+      <% } %>
+      </div>
+      <div>
+        <h6><%= new Date(post.createdAt).toLocaleString('en', {weekday: "short", month: "short", day: 'numeric' }) %> </h6>
+      </div>
     </div>
   </div>
   <% }) %>
@@ -14,4 +33,3 @@
 <% if(posts.length < 1) { %>
 <p>you haven't posted anything yet!</p>
 <% } %>
-

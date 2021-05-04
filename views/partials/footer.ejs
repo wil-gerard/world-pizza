@@ -1,5 +1,17 @@
-        <div class="pizza_footer">
-            <h4>World Pizza &copy 2021</h4>
-        </div>
-    </body>
+<% if(feed){ %>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+    var elem = document.querySelector(".grid");
+    var msnry = new Masonry(elem, {
+        // options
+        itemSelector: ".grid-item",
+        columnWidth: 80,
+
+    });
+</script>
+<% } %>
+<div class="pizza_footer">
+    <h4>World Pizza &copy 2021</h4>
+</div>
+</body>
 </html>
