@@ -7,11 +7,13 @@
     <div class="post-footer">
       <div class="post-info-container">
         <h5><%= post.title %></h5>
-
-        <h5>
+        <div>
+        <h5>Posted by: <%= post.userName %> </h5>
+        <span>
           <%= new Date(post.createdAt).toLocaleString('en', {weekday: "short",
           month: "short", day: 'numeric' }) %>
-        </h5>
+        </span>
+        </div>
       </div>
 
       <% if (feed) { %>

@@ -20,6 +20,7 @@ module.exports = {
             likes: 0,
             dislikes: 0,
             user: req.user.id,
+            userName: req.user.userName,
           });
           console.log("New Pizza Posted");
           //redirect back to profile
