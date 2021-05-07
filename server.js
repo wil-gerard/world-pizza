@@ -9,7 +9,7 @@ const connectDB = require('./config/config')
 const passport = require('passport')
 require('dotenv').config({path: './config/.env'})
 //Importing the routers
-const mainRoutes = require('./routes/main')
+const mainRoutes = require('./Routes/main')
 const pizzaPostRoutes = require('./Routes/post')
 // passport config
 require('./config/passport')(passport)
@@ -54,7 +54,7 @@ https://ejs.co/#docs */
 app.set('view engine', 'ejs')
 
 //Telling express where to find our static files (CSS, front-end JavaScript)
-app.use(express.static('public'))
+app.use(express.static('Public'))
 
 /*Initializing built in middleware that helps our server deal with
 JSON data sent as the request body with a POST or PUT request

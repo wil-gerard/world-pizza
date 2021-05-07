@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 // This is where we will be requiring the User and ensureAuth, so I don't believe we'll need it in the server anymore? (VKB)
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
+
 //import multer
 //the middleware in this handler is multer grabbing the file data
 //not 100% sure how it works - would be cool to research
