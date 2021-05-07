@@ -29,6 +29,15 @@ module.exports = {
           console.error(error);
         }
       },
+    uploadProPic: async (req, res) => {
+      try {
+        const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
+        await User.findByIdAndUpdate(req.user.id, {profilePic: cloudinaryResponse.secure_url})
+        res.redirect("/profile");
+      } catch (error) {
+        console.error(error);
+      }
+    }, 
     renderPost: async (req, res) => {
         try {
           const post = await PizzaPost.findById(req.params.id);
