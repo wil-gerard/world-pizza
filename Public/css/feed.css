@@ -28,6 +28,11 @@
   border-radius: 50%;
 }
 
+.profile-image img {
+  width: 100%;
+  border-radius: 50%;
+}
+
 .form-container {
   max-width: 400px;
   min-width: 200px;
