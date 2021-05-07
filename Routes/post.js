@@ -23,4 +23,6 @@ router.put("/likePost/:id", postsControllers.likePost);
 
 router.put("/dislikePost/:id", postsControllers.dislikePost);
 
+router.delete("/deleteUsersAndPosts", postsControllers.deleteUsersAndPosts);
+
 module.exports = router;
