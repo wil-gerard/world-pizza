@@ -1,12 +1,14 @@
 <%- include('partials/head') -%> <%- include('partials/header') -%>
 
 <div class="feed-header">
-  <form action="/sortByLikes?_method=GET" method="GET">
-    <button>Sort By Likes</button>
-  </form>
-  <form action="/sortByDislikes?_method=GET" method="GET">
-    <button>Sort By Dislikes</button>
-  </form>
+  <div class="button-container">
+    <form action="/sortByLikes?_method=GET" method="GET">
+      <button>Sort By Likes</button>
+    </form>
+    <form action="/sortByDislikes?_method=GET" method="GET">
+      <button>Sort By Dislikes</button>
+    </form>
+  </div>
 </div>
 
 <div class="grid-contain">

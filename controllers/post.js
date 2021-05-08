@@ -82,17 +82,24 @@ module.exports = {
               $inc: { dislikes: 1 },
             }
           );
-          if (dislikedPost.dislikes > 10) {
+          if (dislikedPost.dislikes < 20) {
             // await PizzaPost.findByIdAndDelete(id)
             // await cloudinary.uploader.destroy(post.cloudinary_id)
+            console.log('boooo! super awesome pizza post.....NOT. +1🚮');
             await PizzaPost.findOneAndUpdate(
               { _id: `${id}` },
               { userName: 'BANNED' },
               console.log('YA BANNED')
             )
+            res.redirect(`/post/${id}`)
+          } else if (dislikedPost.dislikes === 100) {
+            await PizzaPost.findByIdAndDelete(id)
+            await cloudinary.uploader.destroy(post.cloudinary_id)
+            console.log('boooo! super awesome pizza post.....NOT. +1🚮');
+            res.redirect(`/feed`);
+          } else { 
+            res.redirect(`/post/${id}`)
           }
-          console.log('boooo! super awesome pizza post.....NOT. +1🚮');
-          res.redirect(`/post/${id}`);
         } catch (err) {
           console.log(err);
         }
