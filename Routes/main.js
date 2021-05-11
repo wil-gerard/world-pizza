@@ -17,6 +17,9 @@ router.get("/profile", ensureAuth, mainControllers.profile);
 
 router.get("/feed", mainControllers.feed);
 
+router.get("/sortByLikes", mainControllers.sortByLikes);
+
+router.get("/sortByDislikes", mainControllers.sortByDislikes)
 
 //Signup Page
 router.get("/signup", ensureGuest, mainControllers.signupPage);

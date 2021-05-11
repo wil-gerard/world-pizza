@@ -1,7 +1,36 @@
 <%- include('partials/head') -%> <%- include('partials/header') -%>
 
+<div class="feed-header">
+  <div class="button-container">
+    <form action="/sortByLikes?_method=GET" method="GET">
+      <button>Sort By Likes</button>
+    </form>
+    <form action="/sortByDislikes?_method=GET" method="GET">
+      <button>Sort By Dislikes</button>
+    </form>
+  </div>
+</div>
 
 <div class="grid-contain">
+
+    <!-- <form action="/post/deleteUsersAndPosts?_method=DELETE" method="POST">
+      <button>🗑️DELETE ALL USERS AND POSTS</button>
+    </form>
+    <form id="sortBy" action="" method="GET">
+      <select name="sortBy" onchange="changeFormAction(this.value)">
+        <option value="/sortByLikes?_method=GET">Likes</option>
+        <option value="/sortByDislikes?_method=GET">Dislikes</option>
+      </select>
+    </form> -->
+
+
+
   <%- include('partials/pizzaGrid') %>
 </div>
 <%- include('partials/footer') -%>
+<script>
+  function changeFormAction(val) {
+    document.getElementById("sortBy").setAttribute("action", val)
+    console.log(val)
+  }
+</script>

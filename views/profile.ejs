@@ -3,7 +3,16 @@
 <div class="profile-greeting">
 
   <h2>Hi <%= user.userName %>!</h2>
-  <div class="profile-image"></div>
+  <div class="profile-image"><img src="<%= user.profilePic %>" alt=""></div>
+
+  <form
+    action="/post/profileUpload"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input type="file" name="file">
+    <button>Upload</button>
+  </form>
 </div>
 
 
