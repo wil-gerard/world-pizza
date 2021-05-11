@@ -3,6 +3,82 @@
   flex-direction: column;
 }
 
+.form-section {
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.feed-header {
+
+  text-align: center;
+  margin-top: 5rem;
+
+  width: 100%;
+
+
+
+  background: orange;
+}
+
+.form-section label {
+  font-family: "Pacifico", cursive;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  width: 30%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-section input,
+.form-section textarea {
+  align-self: flex-end;
+  width: 70%;
+  border: 1px solid #9c1204;
+  border-radius: 3px;
+}
+
+#form-file input {
+  border: none;
+}
+
+#form-title input {
+  height: 40px;
+}
+
+#form-caption textarea {
+  height: 80px;
+}
+
+#file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+#file::before {
+  content: 'Select a file';
+  color: black;
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+
+#file {
+  color: transparent;
+}
+
+.form-section button {
+  margin: 0 auto;
+}
+
 .contain-profile {
   text-align: center;
   padding: 2%;
@@ -14,7 +90,6 @@
 
 .profile-greeting {
   padding: 0 2%;
-  width: 40%;
   margin-right: 5%;
   display: flex;
   flex-direction: column;
@@ -38,7 +113,7 @@
   display: flex;
   justify-content: space-around;
   width: 80%;
-  margin: 10vh 10% 10vh 10%;
+  margin: 5vh 10% 10vh 10%;
 }
 
 .grid {
