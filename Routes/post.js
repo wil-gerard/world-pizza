@@ -23,6 +23,10 @@ router.put("/likePost/:id", postsControllers.likePost);
 
 router.put("/dislikePost/:id", postsControllers.dislikePost);
 
+
 router.delete("/deleteUsersAndPosts", postsControllers.deleteUsersAndPosts);
+
+router.post("/profileUpload", upload.single("file"), postsControllers.uploadProPic)
+
 
 module.exports = router;
