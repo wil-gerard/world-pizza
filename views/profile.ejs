@@ -9,9 +9,10 @@
     action="/post/profileUpload"
     method="POST"
     enctype="multipart/form-data"
+    id="profile-pic-upload-form"
   >
     <input type="file" name="file">
-    <button>Upload</button>
+    <button class="upload-button">Upload</button>
   </form>
 </div>
 
@@ -20,7 +21,7 @@
     <h2>Post a Pizza Pic</h2>
     <!-- form for a new post - have never used enctype before - something else cool to research -->
     <form
-      action="/post/profile/create-post"
+      action="/post/create-post"
       enctype="multipart/form-data"
       method="POST"
       id="new-post-form"
@@ -38,7 +39,7 @@
         <input type="file" name="file" id="file" />
       </div>
       <div id="" class="form-section">
-        <button>Post</button>
+        <button id="post-button">Post</button>
       </div>
     </form>
   </div>
