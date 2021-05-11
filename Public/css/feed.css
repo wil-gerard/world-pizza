@@ -64,6 +64,7 @@
   padding: 5px 8px;
   outline: none;
   white-space: nowrap;
+  user-select: none;
   -webkit-user-select: none;
   cursor: pointer;
   text-shadow: 1px 1px #fff;
@@ -77,6 +78,40 @@
 
 .form-section button {
   margin: 0 auto;
+}
+
+.feed-header {
+  width: 100%;
+  margin-top: 5rem;
+  height: 5rem;
+  background-color: bisque;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-right: 50%;
+}
+
+.feed-header button {
+  background: rgb(233, 106, 21);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+
+.feed-header form:not(:first-child) {
+  padding-left: 10px;
+}
+
+.button-container {
+  padding-left: 12%;
+  display: flex;
+  align-items: center;
 }
 
 .contain-profile {
@@ -100,6 +135,11 @@
   background: cornflowerblue;
   width: 250px;
   height: 250px;
+  border-radius: 50%;
+}
+
+.profile-image img {
+  width: 100%;
   border-radius: 50%;
 }
 

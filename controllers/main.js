@@ -28,6 +28,28 @@ module.exports = {
           });
         });
       },
+    sortByLikes: async (req, res) => {
+      await PizzaPost.find().sort({ likes: "desc"}).then((response) => {
+        res.render("feed", {
+          user: req.user,
+          posts: response,
+          title: 'Feed',
+          style: 'feed',
+          feed: true,
+        });
+      });
+    },   
+    sortByDislikes: async (req, res) => {
+      await PizzaPost.find().sort({ dislikes: "desc"}).then((response) => {
+        res.render("feed", {
+          user: req.user,
+          posts: response,
+          title: 'Feed',
+          style: 'feed',
+          feed: true,
+        });
+      });
+    },   
     signupPage: (req, res) => {
         res.render("signup",  {
             user: req.user,

@@ -1,9 +1,20 @@
 <%- include('partials/head') -%> <%- include('partials/header') -%>
 <div class="contain-profile">
-  <div class="profile-greeting">
-    <h2>Hi <%= user.userName %>!</h2>
-    <div class="profile-image"></div>
-  </div>
+<div class="profile-greeting">
+
+  <h2>Hi <%= user.userName %>!</h2>
+  <div class="profile-image"><img src="<%= user.profilePic %>" alt=""></div>
+
+  <form
+    action="/post/profileUpload"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input type="file" name="file">
+    <button>Upload</button>
+  </form>
+</div>
+
 
   <div class="form-container">
     <h2>Post a Pizza Pic</h2>

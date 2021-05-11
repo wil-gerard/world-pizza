@@ -29,6 +29,15 @@ module.exports = {
           console.error(error);
         }
       },
+    uploadProPic: async (req, res) => {
+      try {
+        const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
+        await User.findByIdAndUpdate(req.user.id, {profilePic: cloudinaryResponse.secure_url})
+        res.redirect("/profile");
+      } catch (error) {
+        console.error(error);
+      }
+    }, 
     renderPost: async (req, res) => {
         try {
           const post = await PizzaPost.findById(req.params.id);
@@ -74,18 +83,56 @@ module.exports = {
       },
     dislikePost: async (req, res) => {
         try {
-          await PizzaPost.findOneAndUpdate(
-            { _id: req.params.id },
+          const id = req.params.id;
+          const dislikedPost = await PizzaPost.findOneAndUpdate(
+            { _id: `${id}` },
             {
               //increases post dislikes by +1🚮
               $inc: { dislikes: 1 },
             }
           );
-          console.log('boooo! super awesome pizza post.....NOT. +1🚮');
-          res.redirect(`/post/${req.params.id}`);
+          if (dislikedPost.dislikes < 20) {
+            // await PizzaPost.findByIdAndDelete(id)
+            // await cloudinary.uploader.destroy(post.cloudinary_id)
+            console.log('boooo! super awesome pizza post.....NOT. +1🚮');
+            await PizzaPost.findOneAndUpdate(
+              { _id: `${id}` },
+              { userName: 'BANNED' },
+              console.log('YA BANNED')
+            )
+            res.redirect(`/post/${id}`)
+          } else if (dislikedPost.dislikes === 100) {
+            await PizzaPost.findByIdAndDelete(id)
+            await cloudinary.uploader.destroy(post.cloudinary_id)
+            console.log('boooo! super awesome pizza post.....NOT. +1🚮');
+            res.redirect(`/feed`);
+          } else { 
+            res.redirect(`/post/${id}`)
+          }
         } catch (err) {
           console.log(err);
         }
       },
-    
+    deleteUsersAndPosts: async (req, res) => {
+      try {
+        await PizzaPost.deleteMany({}, (err, result) => {
+          if (err) {
+            res.send(err)
+          } else {
+            res.send(result)
+          }
+        })
+        await User.deleteMany({}, (err, result) => {
+          if (err) {
+            res.send(err)
+          } else {
+            res.send(result)
+            console.log("🚮🚮🚮🚮ALL USERS AND POSTS DELETED🚮🚮🚮🚮")
+          }
+        })
+        res.redirect('/feed')
+      } catch (error) {
+          console.error(error)
+      }
+    },  
 }
