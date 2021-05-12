@@ -1,17 +1,32 @@
+button {
+    background: white;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
 .container {
     display: flex;
-    margin: 15% auto;
+    margin: 15% auto 0 auto;
     width: 80%;
+    padding: 20px;
+    max-width: 800px;
     border: 1px solid black;
+    border-radius: 4px;
 }
 
 .item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     width: 50%;
-    border: 1px solid red;
+   
 
+}
+
+.caption {
+    padding: 5%;
 }
 
 .item img {
@@ -24,12 +39,23 @@
     justify-content: space-between;
 }
 
-.pizza_footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  border-top: 1px solid orange;
-  background: #fff;
+
+.post-footer {
+    width: 100%;
+    align-items: center;
+    padding: 0 10%;
 }
+
+.post-counters span {
+    margin: 0 10px; 
+}
+
+.post-buttons {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 20px auto;
+}
+
+

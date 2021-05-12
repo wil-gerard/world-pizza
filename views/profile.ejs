@@ -9,9 +9,10 @@
     action="/post/profileUpload"
     method="POST"
     enctype="multipart/form-data"
+    id="profile-pic-upload-form"
   >
     <input type="file" name="file">
-    <button>Upload</button>
+    <button class="upload-button">Upload</button>
   </form>
 </div>
 
@@ -25,21 +26,23 @@
       method="POST"
       id="new-post-form"
     >
-      <label for="post-title"> Pizza Title </label>
-      <input type="text" name="title" id="post-title" />
-      <label for="post-caption"> Pizza Caption </label>
-      <textarea name="caption" id="" cols="30" rows="10" id="post-caption">
-      </textarea>
-      <label for="file">
-        Pizza Pic
-        <!-- file input -->
+      <div id="form-title" class="form-section">
+        <label for="post-title"> Pizza Title </label>
+        <input type="text" name="title" id="post-title" autocomplete="off" />
+      </div>
+      <div id="form-caption" class="form-section">
+        <label for="post-caption"> Pizza Caption </label>
+        <textarea name="caption" id="post-caption"> </textarea>
+      </div>
+      <div id="form-file" class="form-section">
+        <label for="file"> Pizza Pic </label>
         <input type="file" name="file" id="file" />
-      </label>
-      <button>Post Pic</button>
+      </div>
+      <div id="" class="form-section">
+        <button id="post-button">Post</button>
+      </div>
     </form>
   </div>
-  </div>
-  <div class="grid-contain">
-  <%- include('partials/pizzaGrid') %>
 </div>
+<div class="grid-contain"><%- include('partials/pizzaGrid') %></div>
 <%- include('partials/footer') -%>
